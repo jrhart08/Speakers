@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  speakers.api:
+    image: ${DOCKER_REGISTRY-}speakersapi
+    build:
+      context: .
+      dockerfile: Speakers.Api/Dockerfile
+  sql.data:
+#    build:
+#      context: .
+#      dockerfile: Speakers.DataMigrations/Dockerfile
+    image: postgres:12.0
+    ports:
+      - "5432:5432"
+    environment:
+      - PGDATA=/var/pgdata
+      - POSTGRESDB=speakers_app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./.docker-data/postgres:/var/pgdata
+    

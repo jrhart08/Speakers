@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Speakers.DataAccess;
 
 namespace Speakers.Api
 {
@@ -26,6 +27,8 @@ namespace Speakers.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSpeakersDataContext(Configuration.GetConnectionString("SpeakersApp"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -6,6 +6,9 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
 COPY ["Speakers.Api/Speakers.Api.csproj", "Speakers.Api/"]
+COPY ["Speakers.Services/Speakers.Services.csproj", "Speakers.Services/"]
+COPY ["Speakers.DataAccess/Speakers.DataAccess.csproj", "Speakers.DataAccess/"]
+COPY ["Speakers.Domain/Speakers.Domain.csproj", "Speakers.Domain/"]
 RUN dotnet restore "Speakers.Api/Speakers.Api.csproj"
 COPY . .
 WORKDIR "/src/Speakers.Api"
