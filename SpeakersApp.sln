@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Speakers.Api", "Speakers.Api\Speakers.Api.csproj", "{F9C2A893-6D4A-4669-B9DB-19E8716C4447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speakers.Domain", "Speakers.Domain\Speakers.Domain.csproj", "{DA7CD71C-A32C-4ECD-B72B-7613C9E0EB28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Speakers.Domain", "Speakers.Domain\Speakers.Domain.csproj", "{DA7CD71C-A32C-4ECD-B72B-7613C9E0EB28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speakers.DataAccess", "Speakers.DataAccess\Speakers.DataAccess.csproj", "{88EF7B1D-EEAD-4E30-A9BF-B843226BC707}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Speakers.DataAccess", "Speakers.DataAccess\Speakers.DataAccess.csproj", "{88EF7B1D-EEAD-4E30-A9BF-B843226BC707}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speakers.DataMigrations", "Speakers.DataMigrations\Speakers.DataMigrations.csproj", "{19CCE8DF-30DD-4C65-8689-615DC5A68854}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Speakers.DataMigrations", "Speakers.DataMigrations\Speakers.DataMigrations.csproj", "{19CCE8DF-30DD-4C65-8689-615DC5A68854}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speakers.Services", "Speakers.Services\Speakers.Services.csproj", "{294B3A0A-5336-49C3-9EB1-503E75447C1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Speakers.Services", "Speakers.Services\Speakers.Services.csproj", "{294B3A0A-5336-49C3-9EB1-503E75447C1F}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{870E1E98-A5B3-4BC2-B3EC-A0BF2CC8B9F7}"
 EndProject

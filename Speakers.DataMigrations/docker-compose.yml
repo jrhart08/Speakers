@@ -1,0 +1,20 @@
+﻿version: '3.7'
+
+services:
+  sql.data:
+    image: postgres
+    container_name: speakersapp-postgres
+    ports:
+    - "5432:5432"
+    environment:
+      PGDATA: /var/pgdata
+      POSTGRESDB: speakers_app
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+    - sql-data-volume:/var/pgdata
+
+volumes:
+  sql-data-volume:
+    name: speakersapp-data-volume
+    driver: local
