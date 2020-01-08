@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>4fc8d9db-e7f1-4825-9b49-1419ccbf7f89</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
@@ -14,7 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
+    <PackageReference Include="NetCore.AutoRegisterDi" Version="1.1.0" />
+    <PackageReference Include="NodaTime.Serialization.JsonNet" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>

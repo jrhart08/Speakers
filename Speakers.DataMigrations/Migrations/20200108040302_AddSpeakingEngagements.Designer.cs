@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NodaTime;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -10,9 +11,10 @@ using Speakers.DataAccess;
 namespace Speakers.DataMigrations.Migrations
 {
     [DbContext(typeof(SpeakersDataContext))]
-    partial class SpeakersDataContextModelSnapshot : ModelSnapshot
+    [Migration("20200108040302_AddSpeakingEngagements")]
+    partial class AddSpeakingEngagements
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

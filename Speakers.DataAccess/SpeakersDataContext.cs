@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Infrastructure;
 using System.Text.RegularExpressions;
 
 namespace Speakers.DataAccess
@@ -7,19 +8,18 @@ namespace Speakers.DataAccess
     {
         public SpeakersDataContext(DbContextOptions<SpeakersDataContext> opts) : base(opts) { }
 
+        public DbSet<SpeakingEngagementEntity>? SpeakingEngagements { get; set; }
+
         protected override void OnModelCreating(ModelBuilder model)
         {
-            model.HasDefaultSchema("speakers_app");
-
-            var snakeCase = new Regex($"([a-z])([A-Z]+)");
-            foreach (var t in model.Model.GetEntityTypes())
-            {
-                t.SetTableName(snakeCase.Replace(t.GetTableName(), "$1_$2").ToLower());
-                foreach (var p in t.GetProperties())
-                {
-                    p.SetColumnName(snakeCase.Replace(p.GetColumnName(), "$1_$2").ToLower());
-                }
-            }
+            model.HasDefaultSchema("speakers");
+            model.UsePostgreSqlNamingConvention();
         }
+    }
+
+    public static class SpeakersDataContextExtensions
+    {
+        public static NpgsqlDbContextOptionsBuilder ConfigureForSpeakersDataContext(this NpgsqlDbContextOptionsBuilder builder) =>
+            builder.UseNodaTime();
     }
 }

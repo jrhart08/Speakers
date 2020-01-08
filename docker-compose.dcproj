@@ -5,7 +5,7 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>870e1e98-a5b3-4bc2-b3ec-a0bf2cc8b9f7</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/weatherforecast</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/api/speaking-engagements</DockerServiceUrl>
     <DockerServiceName>speakers.api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>

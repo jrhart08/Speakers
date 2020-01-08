@@ -11,6 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NetCore.AutoRegisterDi" Version="1.1.0" />
+    <PackageReference Include="NodaTime" Version="2.4.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Speakers.DataAccess\Speakers.DataAccess.csproj" />
     <ProjectReference Include="..\Speakers.Domain\Speakers.Domain.csproj" />
   </ItemGroup>

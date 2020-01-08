@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Npgsql;
+using System.Reflection;
 
 namespace Speakers.DataAccess
 {
@@ -10,7 +10,9 @@ namespace Speakers.DataAccess
     {
         public static IServiceCollection AddSpeakersDataContext(this IServiceCollection services, string connectionString)
         {
-            services.AddDbContext<SpeakersDataContext>(opts => opts.UseNpgsql(connectionString));
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddDbContext<SpeakersDataContext>(opts => opts.UseNpgsql(connectionString, o => o.ConfigureForSpeakersDataContext()));
+            services.AddTransient<SpeakersDataSeeder>();
 
             return services;
         }
