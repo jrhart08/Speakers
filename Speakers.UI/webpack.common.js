@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const root = path.resolve(__dirname, 'src');
-const outputPath = path.resolve(__dirname, '..', 'Speakers.Api');
+const outputPath = path.resolve(__dirname, '..', 'Speakers.Api', 'Views', 'SPA');
 
 const htmlPlugin = new HtmlWebpackPlugin({
   filename: path.resolve(outputPath, 'Views', 'SPA', 'index.html'),
