@@ -21,6 +21,7 @@ namespace Speakers.Api
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseWebRoot("Views/SPA");
                 });
     }
 }
