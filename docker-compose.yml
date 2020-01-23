@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  sql.data:
+    image: postgres:12.0
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESDB=speakers_app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+  sql.data.seed:
+    image: ${DOCKER_REGISTRY-}speakersapi.data.seed
+    build:
+      context: .
+      dockerfile: Speakers.DataMigrations/Docker/Dockerfile
+    depends_on:
+    - sql.data
+  speakers.api:
+    image: ${DOCKER_REGISTRY-}speakersapi
+    build:
+      context: .
+      dockerfile: Speakers.Api/Dockerfile
+    depends_on:
+    - sql.data.seed
