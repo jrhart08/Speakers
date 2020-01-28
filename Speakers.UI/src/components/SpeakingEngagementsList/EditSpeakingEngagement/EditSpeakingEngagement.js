@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -52,7 +53,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-const EditSpeakingEngagement = (talkName) => {
+const EditSpeakingEngagement = (speakerName, attendance, talkName, startDate, endDate, hostGroupName, city, state) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -75,10 +76,66 @@ const EditSpeakingEngagement = (talkName) => {
           <FilledInput
             autoFocus
             margin="dense"
-            id="name"
+            id="talkName"
             label="Talk Name"
             fullWidth
             value={talkName}
+          />
+          <FilledInput
+            autoFocus
+            margin="dense"
+            id="speakerName"
+            label="Speaker Name"
+            fullWidth
+            value={speakerName}
+          />
+          <FilledInput
+            autoFocus
+            margin="dense"
+            id="attendance"
+            label="Attendance"
+            fullWidth
+            value={attendance}
+          />
+          <FilledInput
+            autoFocus
+            margin="dense"
+            id="startDate"
+            label="StartDate"
+            fullWidth
+            value={startDate}
+          />
+          <FilledInput
+            autoFocus
+            margin="dense"
+            id="endDate"
+            label="End Date"
+            fullWidth
+            value={endDate}
+          />
+          <FilledInput
+            autoFocus
+            margin="dense"
+            id="hostGroup"
+            label="Host Group"
+            fullWidth
+            value={hostGroupName}
+          />
+          <FilledInput
+            autoFocus
+            margin="dense"
+            id="city"
+            label="City"
+            fullWidth
+            value={city}
+          />
+          <FilledInput
+            autoFocus
+            margin="dense"
+            id="state"
+            label="State"
+            fullWidth
+            value={state}
           />
         </DialogContent>
         <DialogActions>
@@ -89,6 +146,17 @@ const EditSpeakingEngagement = (talkName) => {
       </Dialog>
     </div>
   );
+};
+
+EditSpeakingEngagement.propTypes = {
+  speakerName: PropTypes.string.isRequired,
+  attendance: PropTypes.number,
+  talkName: PropTypes.string.isRequired,
+  startDate: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  hostGroupName: PropTypes.string,
+  city: PropTypes.string,
+  state: PropTypes.string,
 };
 
 export default EditSpeakingEngagement;

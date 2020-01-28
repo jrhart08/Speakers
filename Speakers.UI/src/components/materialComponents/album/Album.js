@@ -135,7 +135,16 @@ const Album = ({ engagements }) => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <EditSpeakingEngagement engagementToEdit={engagement.props.talkName} />
+                    <EditSpeakingEngagement
+                      speakerName={engagement.props.speakerName}
+                      attendance={engagement.props.attendance}
+                      talkName={engagement.props.talkName}
+                      startDate={engagement.props.startDate}
+                      endDate={engagement.props.endDate}
+                      hostGroupName={engagement.props.hostGroupName}
+                      city={engagement.props.city}
+                      state={engagement.props.state}
+                    />
                   </CardActions>
                 </Card>
               </Grid>
