@@ -32,13 +32,13 @@ namespace Speakers.Services
             await _db.SpeakingEngagements
                 .Where(it => it.Id == id)
                 .ProjectTo<SpeakingEngagement>(_automapperConfiguration)
-            .SingleAsync();
+                .SingleAsync();
 
         public async Task UpdateEngagement(SpeakingEngagement engagement)
         {
             var mapper = _automapperConfiguration.CreateMapper();
-            var newEngagement = mapper.Map<SpeakingEngagement, SpeakingEngagementEntity>(engagement);
-            _db.Update(newEngagement);
+            var entity = _db.SpeakingEngagements.SingleAsync(it => it.Id == engagement.Id);
+            await mapper.Map(engagement, entity);
             await _db.SaveChangesAsync();
         }
           
