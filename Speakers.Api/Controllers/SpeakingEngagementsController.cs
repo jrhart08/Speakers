@@ -19,5 +19,16 @@ namespace Speakers.Api.Controllers
         [Route(""), HttpGet]
         public async Task<ActionResult> GetRecentSpeakingEngagements() =>
             Ok(await _speakingEngagementsService.GetRecentEngagements());
+        
+        [Route("getEngagementById/{id}"), HttpGet]
+        public async Task<ActionResult> GetSpeakingEngagementById(string id) =>
+            Ok(await _speakingEngagementsService.GetEngagementById(Guid.Parse(id)));
+
+        [Route("editEngagement"), HttpPatch]
+        public async Task<ActionResult> EditEngagement([FromBody] Speakers.Domain.SpeakingEngagement engagement)
+        {
+            await _speakingEngagementsService.UpdateEngagement(engagement);
+            return Ok();
+        }
     }
 }
