@@ -8,12 +8,12 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
+// import { parse } from 'date-fns';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-import { getFormattedDate } from '../../../services/dateFormat';
 import EditSpeakingEngagement from '../../SpeakingEngagementsList/EditSpeakingEngagement';
 
 function Copyright() {
@@ -131,19 +131,12 @@ const Album = ({ engagements }) => {
                       Attendance: {engagement.props.attendance}
                     </Typography>
                     <Typography>
-                      {getFormattedDate(Date.parse(engagement.props.startDate))}
+                      { /* parse(engagement.props.startDate, 'dd/MM/yyyy', new Date()) */}
                     </Typography>
                   </CardContent>
                   <CardActions>
                     <EditSpeakingEngagement
-                      speakerName={engagement.props.speakerName}
-                      attendance={engagement.props.attendance}
-                      talkName={engagement.props.talkName}
-                      startDate={engagement.props.startDate}
-                      endDate={engagement.props.endDate}
-                      hostGroupName={engagement.props.hostGroupName}
-                      city={engagement.props.city}
-                      state={engagement.props.state}
+                      engagementId={engagement.props.id}
                     />
                   </CardActions>
                 </Card>

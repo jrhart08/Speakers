@@ -40,7 +40,7 @@ const useEngagements = () => {
 const SpeakingEngagements = () => {
   const [engagements] = useEngagements();
   const engagementArray = Object.values(engagements);
-  const engagementList = engagementArray[0] ? engagementArray
+  const engagementList = engagementArray[0] && engagementArray
     .map((engagement) => engagement.id && <SpeakingEngagement
       key={engagement.id}
       speakerName={engagement.speakerName}
@@ -51,11 +51,12 @@ const SpeakingEngagements = () => {
       state={engagement.state}
       talkName={engagement.talkName}
       attendance={engagement.attendance}
-    />) : <li> </li>;
+      id={engagement.id}
+    />);
   return (
     <div>
       {
-        engagementList[0] ? <Album engagements={engagementList} /> : <div></div>
+        engagementList && <Album engagements={engagementList} />
       }
     </div>
   );

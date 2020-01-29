@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
@@ -24,21 +26,17 @@ const styles = (theme) => ({
   },
 });
 
-const DialogTitle = withStyles(styles)((props) => {
-  const {
-    children, classes, onClose, ...other
-  } = props;
-  return (
+const DialogTitle = withStyles(styles)(({
+  children, classes, onClose, ...other
+}) => (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h6">{children}</Typography>
-      {onClose ? (
+      {onClose && (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
           <CloseIcon />
         </IconButton>
-      ) : null}
-    </MuiDialogTitle>
-  );
-});
+      )}
+    </MuiDialogTitle>));
 
 const DialogContent = withStyles((theme) => ({
   root: {
@@ -53,14 +51,27 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-const EditSpeakingEngagement = (speakerName, attendance, talkName, startDate, endDate, hostGroupName, city, state) => {
+const EditSpeakingEngagement = (
+  {
+    speakerNameIn, attendanceIn, talkNameIn, startDateIn, endDateIn, hostGroupNameIn, cityIn, stateIn,
+  },
+) => {
   const [open, setOpen] = React.useState(false);
+  const [talkName, setTalkName] = React.useState(talkNameIn);
+  const [speakerName, setSpeakerName] = React.useState(speakerNameIn);
+  const [attendance, setAttendance] = React.useState(attendanceIn);
+  const [startDate, setStartDate] = React.useState(startDateIn);
+  const [endDate, setEndDate] = React.useState(endDateIn);
+  const [hostGroupName, setHostGroupName] = React.useState(hostGroupNameIn);
+  const [city, setCity] = React.useState(cityIn);
+  const [state, setState] = React.useState(stateIn);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
   };
 
   return (
@@ -73,70 +84,109 @@ const EditSpeakingEngagement = (speakerName, attendance, talkName, startDate, en
           Edit Speaking Engagement
         </DialogTitle>
         <DialogContent dividers>
-          <FilledInput
-            autoFocus
-            margin="dense"
-            id="talkName"
-            label="Talk Name"
-            fullWidth
-            value={talkName}
-          />
-          <FilledInput
-            autoFocus
-            margin="dense"
-            id="speakerName"
-            label="Speaker Name"
-            fullWidth
-            value={speakerName}
-          />
-          <FilledInput
-            autoFocus
-            margin="dense"
-            id="attendance"
-            label="Attendance"
-            fullWidth
-            value={attendance}
-          />
-          <FilledInput
-            autoFocus
-            margin="dense"
-            id="startDate"
-            label="StartDate"
-            fullWidth
-            value={startDate}
-          />
-          <FilledInput
-            autoFocus
-            margin="dense"
-            id="endDate"
-            label="End Date"
-            fullWidth
-            value={endDate}
-          />
-          <FilledInput
-            autoFocus
-            margin="dense"
-            id="hostGroup"
-            label="Host Group"
-            fullWidth
-            value={hostGroupName}
-          />
-          <FilledInput
-            autoFocus
-            margin="dense"
-            id="city"
-            label="City"
-            fullWidth
-            value={city}
-          />
-          <FilledInput
-            autoFocus
-            margin="dense"
-            id="state"
-            label="State"
-            fullWidth
-            value={state}
-          />
+          <FormControl margin="normal" fullWidth>
+            <InputLabel htmlFor='talkName'>Talk Name</InputLabel>
+            <FilledInput
+              autoFocus
+              margin="dense"
+              id="talkName"
+              label="Talk Name"
+              fullWidth
+              type="text"
+              value={talkName}
+              onChange={(e) => setTalkName(e.target.value)}
+            />
+          </FormControl>
+          <FormControl margin="normal" fullWidth>
+            <InputLabel htmlFor='speakerName'>Speaker</InputLabel>
+            <FilledInput
+              autoFocus
+              margin="dense"
+              id="speakerName"
+              label="Speaker Name"
+              fullWidth
+              type="text"
+              value={speakerName}
+              onChange={(e) => setSpeakerName(e.target.value)}
+            />
+          </FormControl>
+          <FormControl margin="normal" fullWidth>
+            <InputLabel htmlFor='attendance'>Attendance</InputLabel>
+            <FilledInput
+              autoFocus
+              margin="dense"
+              id="attendance"
+              label="Attendance"
+              fullWidth
+              type="number"
+              value={attendance}
+              onChange={(e) => setAttendance(e.target.value)}
+            />
+          </FormControl>
+          <FormControl margin="normal" fullWidth>
+            <InputLabel htmlFor='startDate'>Start Date</InputLabel>
+            <FilledInput
+              autoFocus
+              margin="dense"
+              id="startDate"
+              label="StartDate"
+              fullWidth
+              type="date"
+              value={Date.parse(startDate)}
+              onChange={(e) => setStartDate(e.target.value)}
+            />
+          </FormControl>
+          <FormControl margin="normal" fullWidth>
+            <InputLabel htmlFor='endDate'>End Date</InputLabel>
+            <FilledInput
+              autoFocus
+              margin="dense"
+              id="endDate"
+              label="End Date"
+              fullWidth
+              type="date"
+              value={Date.parse(endDate)}
+              onChange={(e) => setEndDate(e.target.value)}
+            />
+          </FormControl>
+          <FormControl margin="normal" fullWidth>
+            <InputLabel htmlFor='hostGroup'>Host Group</InputLabel>
+            <FilledInput
+              autoFocus
+              margin="dense"
+              id="hostGroup"
+              label="Host Group"
+              fullWidth
+              type="text"
+              value={hostGroupName}
+              onChange={(e) => setHostGroupName(e.target.value)}
+            />
+          </FormControl>
+          <FormControl margin="normal" fullWidth>
+            <InputLabel htmlFor='city'>City</InputLabel>
+            <FilledInput
+              autoFocus
+              margin="dense"
+              id="city"
+              label="City"
+              fullWidth
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </FormControl>
+          <FormControl margin="normal" fullWidth>
+            <InputLabel htmlFor='state'>State</InputLabel>
+            <FilledInput
+              autoFocus
+              margin="dense"
+              id="state"
+              label="State"
+              fullWidth
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+            />
+          </FormControl>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
@@ -149,14 +199,7 @@ const EditSpeakingEngagement = (speakerName, attendance, talkName, startDate, en
 };
 
 EditSpeakingEngagement.propTypes = {
-  speakerName: PropTypes.string.isRequired,
-  attendance: PropTypes.number,
-  talkName: PropTypes.string.isRequired,
-  startDate: PropTypes.string.isRequired,
-  endDate: PropTypes.string.isRequired,
-  hostGroupName: PropTypes.string,
-  city: PropTypes.string,
-  state: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 
 export default EditSpeakingEngagement;

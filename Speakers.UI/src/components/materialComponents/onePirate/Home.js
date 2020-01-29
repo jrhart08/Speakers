@@ -5,10 +5,10 @@ import withRoot from './modules/withRoot';
 
 function Index() {
   return (
-    <React.Fragment>
+    <>
       <SpeakersInitiative />
       <AppFooter />
-    </React.Fragment>
+    </>
   );
 }
 

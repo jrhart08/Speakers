@@ -19,19 +19,15 @@ const styles = (theme) => ({
   },
 });
 
-function AppForm(props) {
-  const { children, classes } = props;
-
-  return (
-    <div className={classes.root}>
-      <Container maxWidth="sm">
-        <Box mt={7} mb={12}>
-          <Paper className={classes.paper}>{children}</Paper>
-        </Box>
-      </Container>
-    </div>
-  );
-}
+const AppForm = (children, classes) => (
+  <div className={classes.root}>
+    <Container maxWidth="sm">
+      <Box mt={7} mb={12}>
+        <Paper className={classes.paper}>{children}</Paper>
+      </Box>
+    </Container>
+  </div>
+);
 
 AppForm.propTypes = {
   children: PropTypes.node.isRequired,

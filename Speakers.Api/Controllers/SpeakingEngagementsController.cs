@@ -21,12 +21,13 @@ namespace Speakers.Api.Controllers
             Ok(await _speakingEngagementsService.GetRecentEngagements());
         
         [Route("{id}"), HttpGet]
-        public async Task<ActionResult> GetSpeakingEngagementById(string id) =>
-            Ok(await _speakingEngagementsService.GetEngagementById(Guid.Parse(id)));
+        public async Task<ActionResult> GetSpeakingEngagementById([FromRoute] Guid id) =>
+            Ok(await _speakingEngagementsService.GetEngagementById(id));
 
         [Route("{id}"), HttpPatch]
-        public async Task<ActionResult> EditEngagement([FromBody] Speakers.Domain.SpeakingEngagement engagement)
+        public async Task<ActionResult> EditEngagement([FromRoute] Guid id, [FromBody] Speakers.Domain.SpeakingEngagement engagement)
         {
+            engagement.Id = id;
             await _speakingEngagementsService.UpdateEngagement(engagement);
             return Ok();
         }

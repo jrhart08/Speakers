@@ -41,36 +41,31 @@ const styles = (theme) => ({
   },
 });
 
-function AppAppBar(props) {
-  const { classes } = props;
-
-  return (
-    <div>
-      <AppBar position="fixed">
-        <Toolbar className={classes.toolbar}>
-          <div className={classes.left}>
-            <Link
-              variant="h6"
-              underline="none"
-              color="inherit"
-              className={classes.title}
-              href="https://improving.com/"
-            >
-              {'Improving'}
-            </Link>
-          </div>
-          <RouterLink to="/" className={classes.routerLink}>
-            {'Home'}
-          </RouterLink>
-          <RouterLink to="/speakingEngagementsList" className={classes.routerLink}>
-            {'Speaking Engagements'}
-          </RouterLink>
-        </Toolbar>
-      </AppBar>
-      <div className={classes.placeholder} />
-    </div>
-  );
-}
+const AppAppBar = ({ classes }) => (
+  <div>
+    <AppBar position="fixed">
+      <Toolbar className={classes.toolbar}>
+        <div className={classes.left}>
+          <Link
+            variant="h6"
+            underline="none"
+            color="inherit"
+            className={classes.title}
+            href="https://improving.com/"
+          >
+            Improving
+          </Link>
+        </div>
+        <RouterLink to="/" className={classes.routerLink}>
+          {'Home'}
+        </RouterLink>
+        <RouterLink to="/speakingEngagementsList" className={classes.routerLink}>
+          {'Speaking Engagements'}
+        </RouterLink>
+      </Toolbar>
+    </AppBar>
+    <div className={classes.placeholder} />
+  </div>);
 
 AppAppBar.propTypes = {
   classes: PropTypes.object.isRequired,

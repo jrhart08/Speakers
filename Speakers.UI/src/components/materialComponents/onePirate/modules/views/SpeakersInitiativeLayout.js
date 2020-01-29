@@ -49,19 +49,14 @@ const styles = (theme) => ({
   },
 });
 
-function SpeakersInitiativeLayout(props) {
-  const { backgroundClassName, children, classes } = props;
-
-  return (
-    <section className={classes.root}>
-      <Container className={classes.container}>
-        {children}
-        <div className={classes.backdrop} />
-        <div className={clsx(classes.background, backgroundClassName)} />
-      </Container>
-    </section>
-  );
-}
+const SpeakersInitiativeLayout = ({ backgroundClassName, children, classes }) => (
+  <section className={classes.root}>
+    <Container className={classes.container}>
+      {children}
+      <div className={classes.backdrop} />
+      <div className={clsx(classes.background, backgroundClassName)} />
+    </Container>
+  </section>);
 
 SpeakersInitiativeLayout.propTypes = {
   backgroundClassName: PropTypes.string.isRequired,

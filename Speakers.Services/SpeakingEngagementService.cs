@@ -37,8 +37,8 @@ namespace Speakers.Services
         public async Task UpdateEngagement(SpeakingEngagement engagement)
         {
             var mapper = _automapperConfiguration.CreateMapper();
-            var entity = _db.SpeakingEngagements.SingleAsync(it => it.Id == engagement.Id);
-            await mapper.Map(engagement, entity);
+            var entity = await _db.SpeakingEngagements.SingleAsync(it => it.Id == engagement.Id);
+            mapper.Map(engagement, entity);
             await _db.SaveChangesAsync();
         }
           

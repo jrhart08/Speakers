@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 
 
 const SpeakingEngagement = ({
-  // eslint-disable-next-line no-unused-vars
-  speakerName, talkName, hostGroupName, startDate, endDate, city, state, attendance,
+  speakerName, talkName, hostGroupName, startDate, endDate, city, state, attendance, id,
 }) => (
     <li>{startDate}. {speakerName} | {talkName} | {hostGroupName}
-      | {endDate} | {city} | {state} | {attendance}</li>);
+      | {endDate} | {city} | {state} | {attendance} | {id}</li>);
 
 SpeakingEngagement.propTypes = {
   speakerName: PropTypes.string.isRequired,
@@ -18,6 +17,7 @@ SpeakingEngagement.propTypes = {
   hostGroupName: PropTypes.string,
   city: PropTypes.string,
   state: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default SpeakingEngagement;

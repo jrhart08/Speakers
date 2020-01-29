@@ -53,9 +53,7 @@ function Typography(props) {
   return (
     <MuiTypography variantMapping={variantMapping} variant={variant} {...other}>
       {children}
-      {marked ? (
-        <span className={classes[`marked${capitalize(variant) + capitalize(marked)}`]} />
-      ) : null}
+      {marked && <span className={classes[`marked${capitalize(variant) + capitalize(marked)}`]} />}
     </MuiTypography>
   );
 }

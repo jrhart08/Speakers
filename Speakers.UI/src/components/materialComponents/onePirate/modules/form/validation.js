@@ -1,7 +1,5 @@
 
-function isDirty(value) {
-  return value || value === 0;
-}
+const isDirty = (value) => value || value === 0;
 
 export default function required(requiredFields, values) {
   return requiredFields.reduce(

@@ -28,27 +28,23 @@ const styles = (theme) => ({
   },
 });
 
-function SpeakersInitiative(props) {
-  const { classes } = props;
-
-  return (
-    <SpeakersInitiativeLayout backgroundClassName={classes.background}>
-      {/* Increase the network loading priority of the background image. */}
-      <img style={{ display: 'none' }} src={backgroundImage} alt="increase priority" />
-      <Typography color="inherit" align="center" variant="h2">
-        Speakers Initiative
+const SpeakersInitiative = ({ classes }) => (
+  <SpeakersInitiativeLayout backgroundClassName={classes.background}>
+    {/* Increase the network loading priority of the background image. */}
+    <img style={{ display: 'none' }} src={backgroundImage} alt="increase priority" />
+    <Typography color="inherit" align="center" variant="h2">
+      Speakers Initiative
       </Typography>
-      <Button
-        color="secondary"
-        size="large"
-        className={classes.button}
-        href="/"
-      >
-        Sign-up to Speak
+    <Button
+      color="secondary"
+      size="large"
+      className={classes.button}
+      href="/"
+    >
+      Sign-up to Speak
       </Button>
-    </SpeakersInitiativeLayout>
-  );
-}
+  </SpeakersInitiativeLayout>
+);
 
 SpeakersInitiative.propTypes = {
   classes: PropTypes.object.isRequired,

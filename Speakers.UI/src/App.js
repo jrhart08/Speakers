@@ -11,6 +11,7 @@ const App = () => (
     <Route exact path='/' component={Home} />
     <Route path='/speakingEngagementsList' component={SpeakingEngagementsList} />
     <AppAppBar />
-  </BrowserRouter >);
+  </BrowserRouter >
+);
 
 export default App;
