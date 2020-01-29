@@ -8,7 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-// import { parse } from 'date-fns';
+import { format } from 'date-fns';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -131,7 +131,16 @@ const Album = ({ engagements }) => {
                       Attendance: {engagement.props.attendance}
                     </Typography>
                     <Typography>
-                      { /* parse(engagement.props.startDate, 'dd/MM/yyyy', new Date()) */}
+                      Start Date: {format(Date.parse(engagement.props.startDate), 'dd/MM/yyyy')}
+                    </Typography>
+                    <Typography>
+                      Start Time: {format(Date.parse(engagement.props.startDate), 'hh:mm')}
+                    </Typography>
+                    <Typography>
+                      End Date: {format(Date.parse(engagement.props.endDate), 'dd/MM/yyyy')}
+                    </Typography>
+                    <Typography>
+                      End Time: {format(Date.parse(engagement.props.endDate), 'hh:mm')}
                     </Typography>
                   </CardContent>
                   <CardActions>
