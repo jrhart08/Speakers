@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getSpeakingEngagements } from '../../api/speakingEngagements';
+import { getSpeakingEngagements, updateEngagement } from '../../api/speakingEngagements';
 import SpeakingEngagement from './SpeakingEngagement';
 import Album from '../materialComponents/album';
 
@@ -29,6 +29,7 @@ export const loadEngagements = (engagements, setEngagements) => () => {
   })();
 };
 
+
 const useEngagements = () => {
   const [engagements, setEngagements] = useState({});
 
@@ -40,6 +41,9 @@ const useEngagements = () => {
 const SpeakingEngagements = () => {
   const [engagements] = useEngagements();
   const engagementArray = Object.values(engagements);
+  const editEngagement = (engagementToUpdate) => {
+    updateEngagement(engagementToUpdate);
+  };
   const engagementList = engagementArray[0] && engagementArray
     .map((engagement) => engagement.id && <SpeakingEngagement
       key={engagement.id}
@@ -57,7 +61,7 @@ const SpeakingEngagements = () => {
   return (
     <div>
       {
-        engagementList && <Album engagements={engagementList} />
+        engagementList && <Album engagements={engagementList} handleEdit={editEngagement} />
       }
     </div>
   );

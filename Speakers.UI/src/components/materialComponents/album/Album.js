@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Album = ({ engagements }) => {
+const Album = ({ engagements, handleEdit }) => {
   const classes = useStyles();
 
   return (
@@ -133,7 +133,16 @@ const Album = ({ engagements }) => {
                   </CardContent>
                   <CardActions>
                     <EditSpeakingEngagement
-                      engagementId={engagement.props.id}
+                      speakerNameIn={engagement.props.speakerName}
+                      attendanceIn={engagement.props.attendance}
+                      talkNameIn={engagement.props.talkName}
+                      startDateIn={engagement.props.startDate}
+                      endDateIn={engagement.props.endDate}
+                      hostGroupNameIn={engagement.props.hostGroupName}
+                      cityIn={engagement.props.city}
+                      stateIn={engagement.props.state}
+                      handleEdit={handleEdit}
+                      id={engagement.props.id}
                     />
                   </CardActions>
                 </Card>

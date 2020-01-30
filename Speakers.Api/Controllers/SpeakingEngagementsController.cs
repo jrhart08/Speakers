@@ -27,9 +27,17 @@ namespace Speakers.Api.Controllers
         [Route("{id}"), HttpPatch]
         public async Task<ActionResult> EditEngagement([FromRoute] Guid id, [FromBody] Speakers.Domain.SpeakingEngagement engagement)
         {
-            engagement.Id = id;
-            await _speakingEngagementsService.UpdateEngagement(engagement);
-            return Ok();
+            try
+            {
+                engagement.Id = id;
+                await _speakingEngagementsService.UpdateEngagement(engagement);
+                return Ok();
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e);
+            }
+            
         }
     }
 }

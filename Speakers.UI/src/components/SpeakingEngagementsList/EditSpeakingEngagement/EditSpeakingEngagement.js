@@ -53,7 +53,7 @@ const DialogActions = withStyles((theme) => ({
 
 const EditSpeakingEngagement = (
   {
-    speakerNameIn, attendanceIn, talkNameIn, startDateIn, endDateIn, hostGroupNameIn, cityIn, stateIn,
+    speakerNameIn, attendanceIn, talkNameIn, startDateIn, endDateIn, hostGroupNameIn, cityIn, stateIn, handleEdit, id,
   },
 ) => {
   const [open, setOpen] = React.useState(false);
@@ -68,6 +68,9 @@ const EditSpeakingEngagement = (
 
   const handleClose = () => {
     setOpen(false);
+    handleEdit({
+      talkName, speakerName, attendance, startDate, endDate, hostGroupName, city, state, id,
+    });
   };
 
   const handleClickOpen = () => {
