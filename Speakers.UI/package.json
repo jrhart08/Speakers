@@ -12,7 +12,7 @@
   },
   "author": "Improving - Houston",
   "contributors": [
-    "Eric Siebeneich <eric.siebeneich@improving.com> (https://github.com/devzeebo",
+    "Eric Siebeneich <eric.siebeneich@gmail.com> (https://github.com/devzeebo)",
     "Wayne Nolen <wayne.nolen@improving.com>"
   ],
   "homepage": "",
@@ -60,10 +60,10 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-final-form": "^6.3.5",
-    "react-redux": "^7.1.1",
+    "react-redux": "^7.1.3",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
-    "redux": "^4.0.4",
+    "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.0.0"
   }

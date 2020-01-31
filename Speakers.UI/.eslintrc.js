@@ -1,13 +1,13 @@
 module.exports = {
   root: true,
-  extends: ['airbnb/base', 'plugin:lodash/recommended', 'plugin:import/errors', 'plugin:import/warnings', 'plugin:react/recommended'],
+  extends: ['airbnb', 'plugin:lodash/recommended', 'plugin:import/errors', 'plugin:import/warnings', 'plugin:react/recommended'],
   plugins: ['jsx-a11y'],
   parser: 'babel-eslint',
   env: {
     browser: true,
-    node: true,
   },
   rules: {
+    'react/jsx-filename-extension': 'off',
     'import/default': ['error'],
     'import/named': ['error'],
     'import/namespace': ['error', { allowComputed: false }],
@@ -16,21 +16,16 @@ module.exports = {
     'max-len': [
       'error',
       {
-        code: 120,
+        code: 100,
         ignoreUrls: true,
         ignoreRegExpLiterals: true,
       },
     ],
     'jsx-a11y/click-events-have-key-events': 'off',
-    'lodash/prefer-lodash-method': 'off',
-    'lodash/prefer-includes': 'off',
-    'lodash/prefer-lodash-typecheck': 'off',
-    'lodash/matches-prop-shorthand': 'off',
     'no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
     'no-return-assign': ['error', 'except-parens'],
     'radix': 'off',
     'class-methods-use-this': 'off',
-    'react/prop-types': 'off',
     'no-mixed-operators': 'off',
   },
   settings: {
