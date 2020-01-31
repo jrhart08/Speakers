@@ -7,8 +7,8 @@ import Container from '@material-ui/core/Container';
 
 import theme from './theme';
 // import { Route } from 'react-router';
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import EngagementsList from './pages/engagements-list';
 
 const App = () => (
