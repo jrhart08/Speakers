@@ -1,30 +1,37 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 
 import theme from './theme';
-// import { Route } from 'react-router';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import EngagementsList from './pages/engagements-list';
 
 const App = () => (
-  <ThemeProvider theme={theme}>
-    <StyledThemeProvider theme={theme}>
-      <CssBaseline />
-      <BrowserRouter>
+  <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <StyledThemeProvider theme={theme}>
+        <CssBaseline />
         <Header />
         <main>
           <Container maxWidth="md">
-            <EngagementsList />
+            <Switch>
+              <Route exact path="/" component={EngagementsList} />
+              <Redirect to="/" />
+            </Switch>
           </Container>
         </main>
         <Footer />
-      </BrowserRouter>
-    </StyledThemeProvider>
-  </ThemeProvider>
+      </StyledThemeProvider>
+    </ThemeProvider>
+  </BrowserRouter>
 );
 export default App;
