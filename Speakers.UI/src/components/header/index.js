@@ -1,12 +1,17 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
+import styled from 'styled-components';
+
+const Divider = styled.div`
+  margin-top: 30px;
+`;
 
 const Header = () => (
   <>
     <AppBar>
-    Header
+      Header
     </AppBar>
-    <div style={{ marginTop: '30px' }} />
+    <Divider />
   </>
 );
 export default Header;
