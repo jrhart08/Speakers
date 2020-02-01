@@ -1,4 +1,5 @@
 import React from 'react';
+import { format } from 'date-fns/fp';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
@@ -23,7 +24,7 @@ const EngagementCard = ({ item }) => (
           {item.talkName}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          {JSON.stringify(item, undefined, 2)}
+          {format('yyyy-MM-dd')(new Date(item.dateTimeStart))}
         </Typography>
       </CardContent>
     </CardActionArea>
@@ -33,6 +34,7 @@ const EngagementCard = ({ item }) => (
 EngagementCard.propTypes = {
   item: PropTypes.shape({
     talkName: PropTypes.string.isRequired,
+    dateTimeStart: PropTypes.string.isRequired,
   }).isRequired,
 };
 export default EngagementCard;
