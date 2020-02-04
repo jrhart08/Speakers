@@ -12,7 +12,7 @@ import store from './redux/store';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import EngagementsList from './pages/engagements-list';
-import SpeakersThemeProvider from './themes/SpeakersThemeProvider';
+import SpeakersThemeProvider from './theme/SpeakersThemeProvider';
 
 const App = () => (
   <BrowserRouter>
@@ -32,4 +32,5 @@ const App = () => (
     </Provider>
   </BrowserRouter>
 );
+
 export default App;
