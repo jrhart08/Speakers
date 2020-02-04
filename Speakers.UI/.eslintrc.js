@@ -1,12 +1,23 @@
 module.exports = {
   root: true,
-  extends: ['airbnb', 'plugin:lodash/recommended', 'plugin:import/errors', 'plugin:import/warnings', 'plugin:react/recommended'],
-  plugins: ['jsx-a11y'],
+  extends: [
+    'airbnb',
+    'plugin:lodash/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:react/recommended',
+  ],
+  plugins: [
+    'jsx-a11y',
+    'react-hooks',
+  ],
   parser: 'babel-eslint',
   env: {
     browser: true,
   },
   rules: {
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-filename-extension': 'off',
     'import/default': ['error'],
     'import/named': ['error'],
