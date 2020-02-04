@@ -20,6 +20,19 @@ describe('renameKeys', () => {
       new_object_has_UNMAPPED_keys,
     },
   });
+
+  test('ignores extra keys in mapping', {
+    given: {
+      an_object,
+      key_renaming_map_WITH_EXTRA_KEYS,
+    },
+    when: {
+      renaming_keys,
+    },
+    then: {
+      new_object_DOES_NOT_have_EXTRA_MAPPED_keys,
+    },
+  });
 });
 
 function an_object() {
@@ -35,6 +48,13 @@ function key_renaming_map() {
     arc: 'previousArc',
   };
 }
+function key_renaming_map_WITH_EXTRA_KEYS() {
+  this.renaming_map = {
+    lastName: 'surname',
+    arc: 'previousArc',
+    grandfather: 'Jonathan',
+  };
+}
 function renaming_keys() {
   this.new_object = renameKeys(this.renaming_map)(this.object);
 }
@@ -47,8 +67,10 @@ function original_object_NOT_modified() {
 }
 function new_object_DOES_NOT_have_ORIGINAL_MAPPED_keys() {
   expect(this.new_object).not.toEqual(expect.objectContaining({
-    lastName: 'Joestar',
     arc: 'Battle Tendency',
+  }));
+  expect(this.new_object).not.toEqual(expect.objectContaining({
+    lastName: 'Joestar',
   }));
 }
 function new_object_has_RENAMED_keys() {
@@ -60,5 +82,10 @@ function new_object_has_RENAMED_keys() {
 function new_object_has_UNMAPPED_keys() {
   expect(this.new_object).toEqual(expect.objectContaining({
     firstName: 'Joseph',
+  }));
+}
+function new_object_DOES_NOT_have_EXTRA_MAPPED_keys() {
+  expect(this.new_object).not.toEqual(expect.objectContaining({
+    grandfather: 'Jonathan',
   }));
 }
