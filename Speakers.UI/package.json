@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "lint": "eslint ./src",
     "lint:watch": "esw --watch --color ./src",
     "build:dev": "webpack --config=webpack.dev.js",
