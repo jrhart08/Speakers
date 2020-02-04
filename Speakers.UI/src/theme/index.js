@@ -1,8 +1,9 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import * as themes from './themes';
+import SpeakersThemeProvider from './SpeakersThemeProvider';
+import useThemeContext from './useThemeContext';
 
-const theme = {
-  palette: {
-    type: 'dark',
-  },
+export {
+  themes,
+  SpeakersThemeProvider,
+  useThemeContext,
 };
-export default createMuiTheme(theme);

@@ -18,7 +18,7 @@ const EngagementsList = () => {
       <Grid container spacing={3} justify="center" align="top">
         <Grid item xs={12}>
           <Typography align="center">
-        Speaking Engagements
+            Speaking Engagements
           </Typography>
         </Grid>
         <Grid item xs={12}>
