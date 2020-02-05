@@ -3,7 +3,7 @@
 # https://github.com/microsoft/DockerTools/issues/141
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster as base
-RUN ["dotnet", "tool", "install", "--global", "dotnet-ef", "--version", "3.1.0"]
+RUN ["dotnet", "tool", "restore"]
 ENV PATH="${PATH}:/root/.dotnet/tools"
 
 WORKDIR /src
