@@ -1,0 +1,7 @@
+{
+  "eslint.workingDirectories": [
+      "./Speakers.UI/"
+  ],
+  "eslint.enable": true,
+  "editor.formatOnSave": true
+}

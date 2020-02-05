@@ -458,3 +458,4 @@ MigrationBackup/
 # End of https://www.gitignore.io/api/node,visualstudio,visualstudiocode
 
 .docker-data/
+Speakers.Api/Views/SPA/js/

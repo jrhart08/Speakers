@@ -10,6 +10,5 @@ document.addEventListener('DOMContentLoaded', () => {
     throw new Error('Mount point not found.');
   }
 
-  ReactDOM.render(<App />,
-    mount);
+  ReactDOM.render(<App />, mount);
 });

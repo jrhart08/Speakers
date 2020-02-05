@@ -1,17 +1,36 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { Route } from 'react-router';
-import SpeakingEngagementsList from './components/SpeakingEngagementsList';
-import Home from './components/materialComponents/onePirate/Home';
-import AppAppBar from './components/materialComponents/onePirate/modules/views/AppAppBar';
+import { Provider } from 'react-redux';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import Container from '@material-ui/core/Container';
 
+import store from './redux/store';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import EngagementsList from './pages/engagements-list';
+import SpeakersThemeProvider from './theme/SpeakersThemeProvider';
 
 const App = () => (
-  <BrowserRouter >
-    <Route exact path='/' component={Home} />
-    <Route path='/speakingEngagementsList' component={SpeakingEngagementsList} />
-    <AppAppBar />
-  </BrowserRouter >
+  <BrowserRouter>
+    <Provider store={store}>
+      <SpeakersThemeProvider>
+        <Header />
+        <main>
+          <Container maxWidth="md">
+            <Switch>
+              <Route exact path="/" component={EngagementsList} />
+              <Redirect to="/" />
+            </Switch>
+          </Container>
+        </main>
+        <Footer />
+      </SpeakersThemeProvider>
+    </Provider>
+  </BrowserRouter>
 );
 
 export default App;
